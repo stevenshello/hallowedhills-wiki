@@ -1,439 +1,94 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Businesses & Economy | Hallowed Hills RP Wiki</title>
-  <meta name="description" content="Learn how businesses, money, jobs, and the economy work in Hallowed Hills Roleplay." />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <style>
-    :root {
-      --bg: #0f0f14;
-      --panel: #171721;
-      --panel-2: #1e1e2b;
-      --text: #f4f4f8;
-      --muted: #b8b8c7;
-      --accent: #8b5cf6;
-      --accent-2: #a78bfa;
-      --border: #2b2b3a;
-      --success: #22c55e;
-      --warning: #f59e0b;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0b0b10 0%, #12121a 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--accent-2);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: #c4b5fd;
-    }
-
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-    }
-
-    .hero {
-      padding: 70px 0 40px;
-      border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(circle at top right, rgba(139, 92, 246, 0.18), transparent 30%),
-        radial-gradient(circle at top left, rgba(167, 139, 250, 0.12), transparent 25%);
-    }
-
-    .breadcrumbs {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      margin: 0 0 12px;
-    }
-
-    .hero p {
-      max-width: 750px;
-      color: var(--muted);
-      margin: 0;
-      font-size: 1.05rem;
-    }
-
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .quick-links a {
-      display: inline-block;
-      padding: 10px 14px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      transition: 0.2s ease;
-    }
-
-    .quick-links a:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .section {
-      padding: 40px 0;
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 18px;
-    }
-
-    .section p.lead {
-      color: var(--muted);
-      margin-top: -6px;
-      margin-bottom: 24px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      margin: 0 0 14px;
-      color: var(--muted);
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      margin-bottom: 12px;
-      background: rgba(139, 92, 246, 0.14);
-      color: #d8cbff;
-      border: 1px solid rgba(139, 92, 246, 0.35);
-    }
-
-    .notice {
-      background: rgba(34, 197, 94, 0.09);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-      color: #d8ffe3;
-      padding: 16px 18px;
-      border-radius: 14px;
-      margin: 24px 0;
-    }
-
-    .warning {
-      background: rgba(245, 158, 11, 0.09);
-      border: 1px solid rgba(245, 158, 11, 0.25);
-      color: #ffe8bd;
-      padding: 16px 18px;
-      border-radius: 14px;
-      margin: 24px 0;
-    }
-
-    .steps {
-      display: grid;
-      gap: 14px;
-    }
-
-    .step {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 18px;
-    }
-
-    .step strong {
-      color: #ffffff;
-    }
-
-    ul {
-      margin: 10px 0 0 20px;
-      color: var(--muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 28px 0 40px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 12px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Businesses & Economy | Hallowed Hills Wiki</title>
+  <meta name="description" content="This section explains how the legal money layer works once players move beyond starter income and begin touching businesses, banking, market systems, and credit-based progression.">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="breadcrumbs">
-        <a href="../index.html">Home</a> / Businesses &amp; Economy
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../Main_Page/">
+        <span class="brand-mark">HH</span>
+        <span class="brand-copy">
+          <strong>Hallowed Hills Wiki</strong>
+          <small>Server systems, progression, and guides</small>
+        </span>
+      </a>
+      <nav class="topnav">
+        <a href="../Main_Page/">Main Page</a>
+        <a href="../getting-started/">Getting Started</a>
+        <a href="../jobs/">Jobs</a>
+        <a href="../crime/">Crime</a>
+        <a href="../custom-systems/">Custom Systems</a>
+      </nav>
+    </header>
+    <main class="page">
+    <p class="back-row"><a href="../Main_Page/"><- Back to Main Page</a></p>
+
+    <section class="hub-summary">
+      <p class="eyebrow">Money Flow</p>
+      <h1>Businesses & Economy</h1>
+      <p>This section explains how the legal money layer works once players move beyond starter income and begin touching businesses, banking, market systems, and credit-based progression.</p>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Subpages</p>
+        <h2>Drill into the part of this system you actually need</h2>
       </div>
-
-      <h1>Businesses &amp; Economy</h1>
-      <p>
-        Want to build a business, make money, hire employees, or grow your character’s place in the city?
-        This page covers how businesses, jobs, income, and the economy work in Hallowed Hills Roleplay.
-      </p>
-
-      <div class="quick-links">
-        <a href="#overview">Overview</a>
-        <a href="#businesses">Business Types</a>
-        <a href="#ownership">Ownership</a>
-        <a href="#rules">Economy Rules</a>
-        <a href="#success">Tips for Success</a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="section" id="overview">
-      <div class="container">
-        <h2>Overview</h2>
-        <p class="lead">
-          The economy is meant to support roleplay, create opportunity, and reward active players who contribute to the city.
-        </p>
-
-        <div class="notice">
-          Businesses should create meaningful roleplay for more than just the owner. If it only exists to print money, it ain’t a business — it’s a scam with better branding.
-        </div>
+      <div class="subpage-grid">
+      <a class="subpage-card" href="./economy-overview/">
+        <strong>Economy Overview</strong>
+        <span>The broad shape of legal money, account flow, cash management, and why different loops matter at different stages.</span>
+      </a>
+      <a class="subpage-card" href="./player-businesses/">
+        <strong>Player Businesses</strong>
+        <span>How owned or managed businesses fit into the server and what players should expect from that layer of roleplay.</span>
+      </a>
+      <a class="subpage-card" href="./market-prices/">
+        <strong>Market Prices</strong>
+        <span>A market-facing overview of pricing, trade value, and how the economy rewards specialization.</span>
+      </a>
+      <a class="subpage-card" href="./credit-system/">
+        <strong>Credit System</strong>
+        <span>The HH credit layer, including how it changes progression, access, and financial decision-making.</span>
+      </a>
+      <a class="subpage-card" href="./loans-and-repayment/">
+        <strong>Loans & Repayment</strong>
+        <span>The general risk and reward of borrowing, managing debt, and not overextending a fresh character.</span>
+      </a>
+      <a class="subpage-card" href="./pawn-shop/">
+        <strong>Pawn Shop</strong>
+        <span>How pawn-style systems tie items, cash flow, and some of the darker edges of the economy together.</span>
+      </a>
+      <a class="subpage-card" href="./banking-and-cash-flow/">
+        <strong>Banking & Cash Flow</strong>
+        <span>The practical difference between cash, bank funds, routine expenses, and keeping a character financially stable.</span>
+      </a>
       </div>
     </section>
 
-    <section class="section" id="businesses">
-      <div class="container">
-        <h2>Business Types</h2>
-        <p class="lead">
-          There are different ways players can participate in the economy, from employment to management to full ownership.
-        </p>
-
-        <div class="grid">
-          <article class="card">
-            <span class="tag">Entry Level</span>
-            <h3>Employee Roles</h3>
-            <p>
-              Work for a player-owned or city-supported business and build experience, income, and connections.
-            </p>
-            <a href="../jobs/index.html">View jobs →</a>
-          </article>
-
-          <article class="card">
-            <span class="tag">Management</span>
-            <h3>Business Staff</h3>
-            <p>
-              Help run scheduling, operations, inventory, events, and day-to-day roleplay inside an active business.
-            </p>
-            <a href="#">Learn more →</a>
-          </article>
-
-          <article class="card">
-            <span class="tag">Ownership</span>
-            <h3>Player-Owned Businesses</h3>
-            <p>
-              Operate a custom business that brings services, events, and roleplay opportunities to the community.
-            </p>
-            <a href="#ownership">Ownership info →</a>
-          </article>
-
-          <article class="card">
-            <span class="tag">Growth</span>
-            <h3>Independent Hustles</h3>
-            <p>
-              Build your character through legal services, side work, contracts, networking, and reputation.
-            </p>
-            <a href="#">More info →</a>
-          </article>
-        </div>
-      </div>
+    <section class="systems-block">
+      <p class="eyebrow">Resource Coverage</p>
+      <h2>Server systems grouped into this section</h2>
+      <p>These are the live resource folders that informed this category, grouped at a player-facing level so the wiki stays accurate without dumping raw developer detail onto readers.</p>
+      <ul class="systems-list">
+<li>qb-banking</li>
+<li>qb-management</li>
+<li>lusty94_shops-main</li>
+<li>HH_credit_live</li>
+<li>HH_haunts_market</li>
+<li>HH_pawnrobbery</li>
+<li>qb-vehiclesales</li>
+<li>qb-vehicleshop</li>
+<li>am-advancedStorages-1.2.1</li>
+      </ul>
     </section>
-
-    <section class="section" id="ownership">
-      <div class="container">
-        <h2>Player-Owned Business Ownership</h2>
-        <p class="lead">
-          Owning a business is a bigger responsibility than just having a cool sign and acting like the CEO of vibes.
-        </p>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Clear Purpose</h3>
-            <p>
-              Your business should offer a real service, product, or experience that players can interact with.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Active Roleplay</h3>
-            <p>
-              Businesses should stay active and consistently create scenes, jobs, and opportunities for others.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Professional Conduct</h3>
-            <p>
-              Owners and managers are expected to handle staffing, disputes, and business activity maturely.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Server Value</h3>
-            <p>
-              A good business adds life to the city and gives other players reasons to show up and participate.
-            </p>
-          </article>
-        </div>
-
-        <div class="warning">
-          Inactive, unrealistic, or low-effort businesses may be reviewed, restricted, or removed. Don’t open a whole empire just to disappear like a haunted tax write-off.
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="examples">
-      <div class="container">
-        <h2>Common Business Ideas</h2>
-        <p class="lead">
-          Depending on server setup and approvals, players may be able to operate or work in businesses like these.
-        </p>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Restaurants & Cafés</h3>
-            <p>
-              Create food service roleplay, host events, and provide a social spot for the city.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Mechanic Shops</h3>
-            <p>
-              Handle repairs, towing, upgrades, and vehicle-related roleplay for the driving community.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Retail & Services</h3>
-            <p>
-              Run stores, security services, entertainment venues, or other roleplay-friendly operations.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Custom Concepts</h3>
-            <p>
-              If allowed, unique business ideas may be pitched to staff for approval based on quality and fit.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="rules">
-      <div class="container">
-        <h2>Economy Rules</h2>
-        <p class="lead">
-          The server economy should stay fair, realistic, and healthy for the whole community.
-        </p>
-
-        <div class="steps">
-          <div class="step">
-            <strong>1. No exploiting</strong>
-            <p>
-              Do not abuse bugs, glitches, dupes, or loopholes to gain money, items, or business advantage.
-            </p>
-          </div>
-
-          <div class="step">
-            <strong>2. Keep pricing realistic</strong>
-            <p>
-              Prices, wages, and charges should make sense within the server economy and not be wildly inflated.
-            </p>
-          </div>
-
-          <div class="step">
-            <strong>3. Businesses must be active</strong>
-            <p>
-              If you own a business, you are expected to actually use it and create roleplay through it.
-            </p>
-          </div>
-
-          <div class="step">
-            <strong>4. Follow all server rules</strong>
-            <p>
-              Business ownership does not excuse powergaming, favoritism, staff issues, or rulebreaking.
-            </p>
-          </div>
-        </div>
-
-        <div class="notice">
-          Some businesses may require staff approval, activity checks, interviews, or additional guidelines depending on the type of operation.
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="success">
-      <div class="container">
-        <h2>Tips for Success</h2>
-        <div class="card">
-          <ul>
-            <li>Be consistent and stay active.</li>
-            <li>Create roleplay for employees, customers, and the community.</li>
-            <li>Build a reputation, not just a bank account.</li>
-            <li>Keep your operations realistic and organized.</li>
-            <li>Think long-term when growing your character or your business.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div>Hallowed Hills RP Wiki</div>
-      <div class="footer-links">
-        <a href="../index.html">Home</a>
-        <a href="../rules/index.html">Rules</a>
-        <a href="../getting-started/index.html">Getting Started</a>
-        <a href="../jobs/index.html">Jobs</a>
-      </div>
-    </div>
-  </footer>
+    </main>
+  </div>
+  <script src="../assets/js/search.js"></script>
 </body>
 </html>

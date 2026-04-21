@@ -34,23 +34,67 @@
       <p>A service-style job built around transport, map knowledge, and short task loops.</p>
     </section>
 
+    <section class="split-layout">
+      <article class="info-panel">
+        <h2>What it is</h2>
+        <p>The taxi job is a service route tied to the actual taxi profession. It focuses on passenger pickup and drop-off, with bonuses for not destroying the cab on the way.</p>
+      </article>
+      <article class="info-panel">
+        <h2>How to get started</h2>
+        <p>Make sure your character has the taxi job, go to the taxi yard, clock in if needed, and pull the taxi from the work garage. From there the script begins offering NPC pickup work.</p>
+      </article>
+    </section>
+
     <section class="detail-grid">
       <article class="detail-card">
-        <h3>What it is</h3>
-        <p>This page explains the general player-facing purpose of <strong>Taxi Job</strong> inside Hallowed Hills. It focuses on the role the system plays in progression, scene building, and day-to-day play without exposing hidden answers, illegal coordinates, or sensitive backend details.</p>
+        <h3>How it works in practice</h3>
+        <p>Pick up a passenger, follow the route to the destination, and keep the cab in decent condition. The script tracks vehicle health and crash count, and cleaner driving is rewarded better than sloppy driving.</p>
       </article>
       <article class="detail-card">
-        <h3>How to get started</h3>
-        <p>The safest way to approach this system is to enter through the normal progression attached to it: build the right contacts, complete the obvious starter steps, and use the broader category page as your first checkpoint before you commit resources or crew members.</p>
-      </article>
-      <article class="detail-card">
-        <h3>What to expect</h3>
-        <p>Players should expect this system to connect to several other loops on the server, whether that means money, item flow, law pressure, social reputation, or access to deeper custom HH content.</p>
+        <h3>What to know before you commit</h3>
+        <p>This is one of the jobs where how you drive matters. Too many crashes or running the cab into the ground can kill the mission flow, so it rewards calm map knowledge more than reckless speed.</p>
       </article>
       <article class="detail-card">
         <h3>What this wiki leaves out on purpose</h3>
-        <p>This guide does not publish hidden locations, exact answer strings, staff-only controls, exploit-sensitive logic, or spoiler-style shortcuts that would flatten the intended progression.</p>
+        <p>Nothing important is hidden here beyond exact route coordinates and internal mission tables.</p>
       </article>
+      <article class="detail-card">
+        <h3>Covered resources</h3>
+        <p>This page was written against the live resource stack below so it matches the actual systems running on your server.</p>
+        <ul class="systems-list">
+<li>qb-taxijob</li>
+<li>zc-aitaxi-main</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Practical Flow</p>
+        <h2>How to actually run it</h2>
+      </div>
+      <div class="detail-grid">
+      <article class="detail-card">
+        <h3>Step 1</h3>
+        <p>Start at the taxi lot and spawn the taxi.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 2</h3>
+        <p>Pick up the marked passenger at the active pickup point.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 3</h3>
+        <p>Drive them to the drop-off location without trashing the cab.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 4</h3>
+        <p>Keep the taxi healthy to preserve the intact-vehicle bonus.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 5</h3>
+        <p>Repeat the next fare or return the taxi when you are done.</p>
+      </article>
+      </div>
     </section>
 
     <section class="related-block">

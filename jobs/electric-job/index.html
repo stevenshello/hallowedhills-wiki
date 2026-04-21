@@ -34,23 +34,70 @@
       <p>A utility repair route where players take a work vehicle, accept assignments, and complete maintenance-style tasks.</p>
     </section>
 
+    <section class="split-layout">
+      <article class="info-panel">
+        <h2>What it is</h2>
+        <p>The electric job is a utility-repair route where you take a work truck, wait for an assignment, and repair marked problem spots around the city. It is a straightforward legal loop with a strong "drive out, fix it, get sent to the next one" rhythm.</p>
+      </article>
+      <article class="info-panel">
+        <h2>How to get started</h2>
+        <p>Go to the electric job starter, go on duty, spawn the work truck, and get into it. The assignment system waits briefly before handing you the first waypoint, so the key is staying in the job vehicle and letting the route begin.</p>
+      </article>
+    </section>
+
     <section class="detail-grid">
       <article class="detail-card">
-        <h3>What it is</h3>
-        <p>This page explains the general player-facing purpose of <strong>Electric Job</strong> inside Hallowed Hills. It focuses on the role the system plays in progression, scene building, and day-to-day play without exposing hidden answers, illegal coordinates, or sensitive backend details.</p>
+        <h3>How it works in practice</h3>
+        <p>Once the script assigns a job, it marks the next repair location. Drive there, interact at the pole or repair point, finish the repair timer, get paid to bank, and then wait for the next assignment to queue.</p>
       </article>
       <article class="detail-card">
-        <h3>How to get started</h3>
-        <p>The safest way to approach this system is to enter through the normal progression attached to it: build the right contacts, complete the obvious starter steps, and use the broader category page as your first checkpoint before you commit resources or crew members.</p>
-      </article>
-      <article class="detail-card">
-        <h3>What to expect</h3>
-        <p>Players should expect this system to connect to several other loops on the server, whether that means money, item flow, law pressure, social reputation, or access to deeper custom HH content.</p>
+        <h3>What to know before you commit</h3>
+        <p>This job is stricter than it looks: the assignment loop expects you to be in the work vehicle when it rolls the next job. If you get stuck, the script also provides a reset/end path instead of leaving you trapped on duty.</p>
       </article>
       <article class="detail-card">
         <h3>What this wiki leaves out on purpose</h3>
-        <p>This guide does not publish hidden locations, exact answer strings, staff-only controls, exploit-sensitive logic, or spoiler-style shortcuts that would flatten the intended progression.</p>
+        <p>This is a legal job, so the main thing omitted is low-value internal timing and event details, not secret gameplay.</p>
       </article>
+      <article class="detail-card">
+        <h3>Covered resources</h3>
+        <p>This page was written against the live resource stack below so it matches the actual systems running on your server.</p>
+        <ul class="systems-list">
+<li>EFn_ElectricJob</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Practical Flow</p>
+        <h2>How to actually run it</h2>
+      </div>
+      <div class="detail-grid">
+      <article class="detail-card">
+        <h3>Step 1</h3>
+        <p>Start the electric job and go on duty.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 2</h3>
+        <p>Spawn the work truck and get into it.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 3</h3>
+        <p>Wait for the system to assign the first repair location.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 4</h3>
+        <p>Drive to the marked repair point and press the interact key to start the fix.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 5</h3>
+        <p>Finish the repair timer, collect the bank payout, and let the next job roll.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 6</h3>
+        <p>Use the built-in cancel/reset option if the route ever gets stuck.</p>
+      </article>
+      </div>
     </section>
 
     <section class="related-block">

@@ -34,23 +34,70 @@
       <p>A straightforward city route job that works well for players who want simple legal money with a low barrier to entry.</p>
     </section>
 
+    <section class="split-layout">
+      <article class="info-panel">
+        <h2>What it is</h2>
+        <p>The bus job is a clean early legal route built around picking up NPC passengers and dropping them at the next stop. It is good for learning the map without a complex setup cost.</p>
+      </article>
+      <article class="info-panel">
+        <h2>How to get started</h2>
+        <p>Go to the bus depot, pull a bus from the garage menu, and stay in the correct work vehicle. The script only progresses while you are actually driving the job bus.</p>
+      </article>
+    </section>
+
     <section class="detail-grid">
       <article class="detail-card">
-        <h3>What it is</h3>
-        <p>This page explains the general player-facing purpose of <strong>Bus Job</strong> inside Hallowed Hills. It focuses on the role the system plays in progression, scene building, and day-to-day play without exposing hidden answers, illegal coordinates, or sensitive backend details.</p>
+        <h3>How it works in practice</h3>
+        <p>Once the bus is active, the script sends you to an NPC stop. Pull in, let the passenger board, then follow the new route blip to the drop-off stop. The job pays as the route progresses and immediately rolls into the next pickup/drop cycle.</p>
       </article>
       <article class="detail-card">
-        <h3>How to get started</h3>
-        <p>The safest way to approach this system is to enter through the normal progression attached to it: build the right contacts, complete the obvious starter steps, and use the broader category page as your first checkpoint before you commit resources or crew members.</p>
-      </article>
-      <article class="detail-card">
-        <h3>What to expect</h3>
-        <p>Players should expect this system to connect to several other loops on the server, whether that means money, item flow, law pressure, social reputation, or access to deeper custom HH content.</p>
+        <h3>What to know before you commit</h3>
+        <p>The job expects you to finish the passenger flow cleanly before trying to return the bus. If a passenger is still active, the script pushes you to complete the stop instead of ending the route early.</p>
       </article>
       <article class="detail-card">
         <h3>What this wiki leaves out on purpose</h3>
-        <p>This guide does not publish hidden locations, exact answer strings, staff-only controls, exploit-sensitive logic, or spoiler-style shortcuts that would flatten the intended progression.</p>
+        <p>No hidden content is being withheld here; this is a public legal loop. The wiki simply avoids low-value dev details like internal event names.</p>
       </article>
+      <article class="detail-card">
+        <h3>Covered resources</h3>
+        <p>This page was written against the live resource stack below so it matches the actual systems running on your server.</p>
+        <ul class="systems-list">
+<li>qb-busjob</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Practical Flow</p>
+        <h2>How to actually run it</h2>
+      </div>
+      <div class="detail-grid">
+      <article class="detail-card">
+        <h3>Step 1</h3>
+        <p>Go to the bus depot and open the bus vehicle menu.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 2</h3>
+        <p>Spawn the bus and get into the driver seat.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 3</h3>
+        <p>Follow the route blip to the waiting passenger.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 4</h3>
+        <p>Stop close enough for the NPC to board, then follow the new drop-off blip.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 5</h3>
+        <p>Pull into the bus stop, let the passenger leave, and continue into the next stop.</p>
+      </article>
+      <article class="detail-card">
+        <h3>Step 6</h3>
+        <p>Only return the bus when you are between passenger cycles and ready to end the route.</p>
+      </article>
+      </div>
     </section>
 
     <section class="related-block">
