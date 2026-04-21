@@ -1,1 +1,121 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #dfe3ea;
+  color: #111827;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo-box {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 12px 30px rgba(0,0,0,.15);
+}
+
+h1 {
+  margin: 0;
+  font-size: 56px;
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #4b5563;
+}
+
+.search-bar {
+  margin: 28px auto 0;
+  max-width: 560px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+  outline: none;
+  background: white;
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.wiki-card {
+  min-height: 110px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  padding: 20px;
+  display: flex;
+  align-items: end;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,.28)),
+    linear-gradient(135deg, #111827, #374151);
+  box-shadow: 0 10px 24px rgba(0,0,0,.15);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.wiki-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0,0,0,.2);
+}
+
+.wiki-card span {
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+@media (max-width: 900px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+}
