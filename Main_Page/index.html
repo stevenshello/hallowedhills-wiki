@@ -1,43 +1,139 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hallowed Hills Wiki</title>
+  <meta name="description" content="The official Hallowed Hills wiki main page.">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="logo-wrap">
-        <div class="logo-box">HH</div>
-      </div>
-      <h1>HALLOWED HILLS WIKI</h1>
-      <p class="subtitle">Official guide to systems, jobs, crime, factions, businesses, and progression.</p>
-
-      <div class="search-bar">
-        <input type="text" id="wikiSearch" placeholder="Search the wiki...">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="../Main_Page/">
+        <span class="brand-mark">HH</span>
+        <span class="brand-copy">
+          <strong>Hallowed Hills Wiki</strong>
+          <small>Server systems, progression, and guides</small>
+        </span>
+      </a>
+      <nav class="topnav">
+        <a href="../Main_Page/">Main Page</a>
+        <a href="../getting-started/">Getting Started</a>
+        <a href="../jobs/">Jobs</a>
+        <a href="../crime/">Crime</a>
+        <a href="../custom-systems/">Custom Systems</a>
+      </nav>
+    </header>
+    <main class="page">
+    <section class="hero hero-main">
+      <div class="hero-mark">HH</div>
+      <div class="hero-copy">
+        <p class="eyebrow">Official Server Wiki</p>
+        <h1>Hallowed Hills Wiki</h1>
+        <p class="lede">Built from the actual server resource stack under <code>ftp_live/resources</code>, this wiki is meant to help players understand the systems, progression, and loops that make Hallowed Hills feel like Hallowed Hills.</p>
       </div>
     </section>
 
-    <section class="card-grid">
-      <a class="wiki-card" href="../rules/"><span>Rules & Server Information</span></a>
-      <a class="wiki-card" href="../getting-started/"><span>Guide: Getting Started</span></a>
-      <a class="wiki-card" href="../jobs/"><span>Jobs & Careers</span></a>
-      <a class="wiki-card" href="../businesses-economy/"><span>Businesses & Economy</span></a>
-      <a class="wiki-card" href="../crime/"><span>Crime</span></a>
-      <a class="wiki-card" href="../drugs-labs/"><span>Drugs & Labs</span></a>
-      <a class="wiki-card" href="../gangs-cartels/"><span>Gangs & Cartels</span></a>
-      <a class="wiki-card" href="../law-ems-doj/"><span>Police, EMS & DOJ</span></a>
-      <a class="wiki-card" href="../housing/"><span>Housing & Realtor</span></a>
-      <a class="wiki-card" href="../vehicles-racing/"><span>Vehicles & Racing</span></a>
-      <a class="wiki-card" href="../crafting-items/"><span>Crafting & Items</span></a>
-      <a class="wiki-card" href="../gathering-fishing-hunting/"><span>Gathering, Fishing & Hunting</span></a>
-      <a class="wiki-card" href="../custom-systems/"><span>Custom Hallowed Hills Systems</span></a>
-      <a class="wiki-card" href="../faq/"><span>FAQ & Support</span></a>
+    <section class="search-panel">
+      <label class="search-label" for="wikiSearch">Search the wiki</label>
+      <input type="text" id="wikiSearch" placeholder="Try jobs, gangs, housing, meth, police, credit, or getting started">
+      <p class="search-note">Press Enter to jump straight into the closest matching section.</p>
     </section>
-  </main>
 
+    <section class="section-block">
+      <div class="section-heading">
+        <p class="eyebrow">Main Categories</p>
+        <h2>Start with the part of the city you actually need</h2>
+      </div>
+      <div class="card-grid">
+      <a class="wiki-card" href="../rules/">
+        <small>Policies</small>
+        <strong>Rules & Server Information</strong>
+        <span>This section explains how Hallowed Hills expects players to carry themselves, stay in character, handle conflict, and understand the basic policies that keep the server healthy.</span>
+      </a>
+      <a class="wiki-card" href="../getting-started/">
+        <small>Onboarding</small>
+        <strong>Guide: Getting Started</strong>
+        <span>This section walks a new player through character creation, first steps, core UI systems, and the safest ways to start building momentum without stumbling into the deep end.</span>
+      </a>
+      <a class="wiki-card" href="../jobs/">
+        <small>Legal Work</small>
+        <strong>Jobs & Careers</strong>
+        <span>This section covers the legal work loops across Hallowed Hills, including starter jobs, progression careers, and more custom routes like trucking, airline, and builder work.</span>
+      </a>
+      <a class="wiki-card" href="../businesses-economy/">
+        <small>Money Flow</small>
+        <strong>Businesses & Economy</strong>
+        <span>This section explains how the legal money layer works once players move beyond starter income and begin touching businesses, banking, market systems, and credit-based progression.</span>
+      </a>
+      <a class="wiki-card" href="../crime/">
+        <small>Illegal</small>
+        <strong>Crime & Robberies</strong>
+        <span>This section focuses on the non-drug crime layer: robberies, boosting, money movement, and other higher-risk systems that rely on preparation and escalation discipline.</span>
+      </a>
+      <a class="wiki-card" href="../drugs-labs/">
+        <small>Production</small>
+        <strong>Drugs & Labs</strong>
+        <span>This section explains the broader drug economy, including growing, lab work, processing, and the risk ladder that turns a small side hustle into a serious criminal operation.</span>
+      </a>
+      <a class="wiki-card" href="../gangs-cartels/">
+        <small>Organizations</small>
+        <strong>Gangs & Cartels</strong>
+        <span>This section covers the organized-crime side of Hallowed Hills: recruitment, gang identity, cartel-style progression, territory pressure, and conflict etiquette.</span>
+      </a>
+      <a class="wiki-card" href="../law-ems-doj/">
+        <small>Emergency Services</small>
+        <strong>Police, EMS & DOJ</strong>
+        <span>This section covers the official response side of the server: police work, EMS systems, legal documentation, evidence handling, and the tools that support those roles.</span>
+      </a>
+      <a class="wiki-card" href="../housing/">
+        <small>Living</small>
+        <strong>Housing & Property</strong>
+        <span>This section explains how homes, realtors, storage, and property personalization work so players can turn a starter character into someone with an actual place in the city.</span>
+      </a>
+      <a class="wiki-card" href="../vehicles-racing/">
+        <small>Transport</small>
+        <strong>Vehicles & Racing</strong>
+        <span>This section covers the way Hallowed Hills handles garages, keys, registration, racing, utility attachments, and a lot of the custom vehicle flavor around the server.</span>
+      </a>
+      <a class="wiki-card" href="../crafting-items/">
+        <small>Progression</small>
+        <strong>Crafting & Items</strong>
+        <span>This section breaks down the item economy side of the server: benches, materials, utility items, and the gear players work toward through crafting and collection.</span>
+      </a>
+      <a class="wiki-card" href="../gathering-fishing-hunting/">
+        <small>Resources</small>
+        <strong>Gathering, Fishing & Hunting</strong>
+        <span>This section covers the raw-material side of Hallowed Hills, where players gather, mine, dive, fish, hunt, and turn world interaction into progression fuel.</span>
+      </a>
+      <a class="wiki-card" href="../custom-systems/">
+        <small>Custom</small>
+        <strong>Custom Hallowed Hills Systems</strong>
+        <span>This section is where Hallowed Hills really separates itself from a stock QBCore server, covering the custom progression, event, market, and quality-of-life systems that give the city its own identity.</span>
+      </a>
+      <a class="wiki-card" href="../faq/">
+        <small>Help</small>
+        <strong>FAQ & Support</strong>
+        <span>This section answers the most common player questions, points people toward the right wiki sections, and helps them recover when they are confused or stuck.</span>
+      </a>
+      </div>
+    </section>
+
+    <section class="section-block split-layout">
+      <article class="info-panel">
+        <p class="eyebrow">What this wiki is for</p>
+        <h2>Built for real players, not just for pretty screenshots</h2>
+        <p>This wiki is meant to explain how the server works without leaking hidden answers, illegal coordinates, puzzle solutions, or spoiler-heavy minigame paths. It should help a player get moving, understand progression, and know where to look next.</p>
+      </article>
+      <article class="info-panel">
+        <p class="eyebrow">How it was grouped</p>
+        <h2>Everything traces back to the live resource tree</h2>
+        <p>The categories and subpages are grouped around the live resource folders in <code>custom</code>, <code>hh</code>, and <code>qb</code>. Systems that are purely staff-facing or dependency-only are intentionally not the focus of player-facing pages.</p>
+      </article>
+    </section>
+    </main>
+  </div>
   <script src="../assets/js/search.js"></script>
 </body>
 </html>
