@@ -1,16 +1,1162 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rules | Hallowed Hills Wiki</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <meta name="description" content="Official Hallowed Hills roleplay rules and enforcement principles." />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    :root {
+      --bg: #0b0b12;
+      --bg-soft: #12121b;
+      --card: #151523;
+      --card-2: #1b1b2c;
+      --text: #f3f4f6;
+      --muted: #b8bdd1;
+      --line: rgba(255,255,255,0.08);
+      --purple: #8b5cf6;
+      --purple-2: #6d28d9;
+      --red: #ef4444;
+      --yellow: #f59e0b;
+      --green: #22c55e;
+      --shadow: 0 12px 30px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(139,92,246,0.16), transparent 30%),
+        linear-gradient(180deg, #090910 0%, #0c0c14 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(10,10,16,0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-badge {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-2));
+      box-shadow: var(--shadow);
+      font-size: 18px;
+    }
+
+    .top-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .top-links a,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .top-links a:hover,
+    .button:hover {
+      background: rgba(139,92,246,0.14);
+      border-color: rgba(139,92,246,0.35);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 46px 0 28px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .hero-card,
+    .panel,
+    .section,
+    .rule-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -35% auto;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, rgba(139,92,246,0.22), transparent 65%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(139,92,246,0.12);
+      border: 1px solid rgba(139,92,246,0.25);
+      color: #d8c7ff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 10px;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 3.5rem);
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.08rem;
+    }
+
+    .lead {
+      margin: 0 0 22px;
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .button.primary {
+      background: linear-gradient(135deg, var(--purple), var(--purple-2));
+      border: none;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 16px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .panel-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #d8c7ff;
+      margin-bottom: 12px;
+    }
+
+    .callout {
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+
+    .callout.warn {
+      border-color: rgba(245,158,11,0.35);
+      background: rgba(245,158,11,0.08);
+    }
+
+    .callout.danger {
+      border-color: rgba(239,68,68,0.35);
+      background: rgba(239,68,68,0.08);
+    }
+
+    .callout strong {
+      color: var(--text);
+    }
+
+    .quick-links {
+      padding: 16px 0 8px;
+    }
+
+    .quick-links-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .quick-link {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      transition: 0.2s ease;
+    }
+
+    .quick-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139,92,246,0.35);
+      background: rgba(139,92,246,0.08);
+    }
+
+    .quick-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 4px;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      padding: 24px 0 60px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 84px;
+      align-self: start;
+    }
+
+    .sidebar .panel {
+      padding: 18px;
+    }
+
+    .sidebar-nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    .sidebar-nav a {
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .sidebar-nav a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      border-color: var(--line);
+    }
+
+    .main {
+      display: grid;
+      gap: 20px;
+    }
+
+    .section {
+      padding: 26px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-tag {
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #d8c7ff;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .rule-card {
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.02));
+    }
+
+    .rule-number {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(139,92,246,0.12);
+      border: 1px solid rgba(139,92,246,0.28);
+      color: #e7ddff;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .rule-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .triad {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .mini-box {
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .mini-box strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .mini-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .notice-strip {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(139,92,246,0.12));
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #f3e8ff;
+      font-weight: 600;
+    }
+
+    .site-footer {
+      padding: 22px 0 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .quick-links-grid,
+      .rules-grid,
+      .triad {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero-card,
+      .panel,
+      .section {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main class="page">
-    <p><a href="../Main_Page/">← Back to Main Page</a></p>
-    <h1>Rules</h1>
-    <p>This page will explain the rules and server expectations for Hallowed Hills.</p>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-badge">☠</span>
+        <span>Hallowed Hills Wiki</span>
+      </a>
+
+      <nav class="top-links">
+        <a href="../index.html">Home</a>
+        <a href="#jump-links">Sections</a>
+        <a href="#final-notice">Final Notice</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Official Server Rules</div>
+          <h1>Hallowed Hills Roleplay Rules</h1>
+          <p class="lead">
+            These rules exist to protect fair roleplay, server balance, and immersion.
+            Follow both the written rule and the intended meaning behind it.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#jump-links">Jump to Sections</a>
+            <a class="button" href="../index.html">Back to Wiki Home</a>
+          </div>
+
+          <div class="notice-strip">
+            Staff enforce based on intent, realism, and fairness — not loopholes, technicalities, or semantic games.
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="panel">
+            <div class="panel-title">Read This First</div>
+            <div class="callout warn">
+              <strong>Common sense applies at all times.</strong><br />
+              Not every bad action needs its own line in the rules. If it breaks realism, fairness, or immersion, expect staff to act.
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">Fast Summary</div>
+            <div class="callout">
+              <strong>No loopholes.</strong> No metagaming. No baiting. No RDM/VDM. Value your life. Respect initiation. Stay in character.
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">Enforcement</div>
+            <div class="callout danger">
+              <strong>Trying to “rule-lawyer” the system is still breaking the rules.</strong><br />
+              That move is not clever. It is just speedrunning punishment.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-links" id="jump-links">
+      <div class="container">
+        <div class="quick-links-grid">
+          <a class="quick-link" href="#community">
+            <strong>Community Rules</strong>
+            <span>Respect, language, OOC conduct, staff authority</span>
+          </a>
+          <a class="quick-link" href="#life-death">
+            <strong>Life & Death</strong>
+            <span>NLR, revenge killing, post-death limitations</span>
+          </a>
+          <a class="quick-link" href="#gameplay-integrity">
+            <strong>Gameplay Integrity</strong>
+            <span>Exploits, metagaming, safe zones, powergaming</span>
+          </a>
+          <a class="quick-link" href="#rp-conduct">
+            <strong>RP Conduct</strong>
+            <span>Stay in character, no combat logging/storing</span>
+          </a>
+          <a class="quick-link" href="#initiation">
+            <strong>Initiation</strong>
+            <span>Threat, demand, consequence, timing</span>
+          </a>
+          <a class="quick-link" href="#combat">
+            <strong>Combat Rules</strong>
+            <span>RDM, VDM, third parties, KOS</span>
+          </a>
+          <a class="quick-link" href="#nvl">
+            <strong>Value of Life</strong>
+            <span>Act like your character wants to survive</span>
+          </a>
+          <a class="quick-link" href="#crime">
+            <strong>Crime & Hostages</strong>
+            <span>Robbery motives, hostage handling, limits</span>
+          </a>
+          <a class="quick-link" href="#medical">
+            <strong>Medical</strong>
+            <span>Neutrality, post-revive RP, combat revives</span>
+          </a>
+          <a class="quick-link" href="#law-enforcement">
+            <strong>Law Enforcement</strong>
+            <span>EMS, hostage protocol, abuse prevention</span>
+          </a>
+          <a class="quick-link" href="#vehicles">
+            <strong>Vehicles</strong>
+            <span>Realistic driving and vehicle combat limits</span>
+          </a>
+          <a class="quick-link" href="#major-crime">
+            <strong>Major Crimes</strong>
+            <span>Balance, participation, restart protection</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content container">
+      <aside class="sidebar">
+        <div class="panel">
+          <div class="panel-title">On This Page</div>
+          <nav class="sidebar-nav">
+            <a href="#community">1. Community Rules</a>
+            <a href="#life-death">2. New Life & Death</a>
+            <a href="#gameplay-integrity">3. Gameplay Integrity</a>
+            <a href="#rp-conduct">4. Roleplay Conduct</a>
+            <a href="#initiation">5. Initiation Rules</a>
+            <a href="#combat">6. Combat Rules</a>
+            <a href="#nvl">7. Value of Life</a>
+            <a href="#crime">8. Crime & Hostage Rules</a>
+            <a href="#medical">9. Medical Rules</a>
+            <a href="#law-enforcement">10. Law Enforcement</a>
+            <a href="#vehicles">11. Vehicle Rules</a>
+            <a href="#major-crime">12. Major Crime Rules</a>
+            <a href="#enforcement">13. Enforcement Principles</a>
+            <a href="#final-notice">Final Notice</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="main">
+        <section class="section" id="community">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 1</div>
+              <h2>Community Rules</h2>
+              <p class="section-copy">The baseline rules for behavior, communication, and respect.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">1.1</span>
+              <h3>Use Common Sense</h3>
+              <p>Act realistically and logically at all times. “It wasn’t specifically listed” is not a defense.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.2</span>
+              <h3>Follow Rule Intent</h3>
+              <p>Rules are enforced by meaning and fairness, not by trying to squeeze through wording gaps.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.3</span>
+              <h3>Respect All Players</h3>
+              <p>No harassment, discrimination, hate speech, or targeted toxicity in IC or OOC spaces.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.4</span>
+              <h3>Language Requirement</h3>
+              <p>English must be used in in-game communication unless staff explicitly allow otherwise.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.5</span>
+              <h3>No Drama / OOC Conflict</h3>
+              <p>Do not bring out-of-character grudges into the server. Use support channels and staff instead.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.6</span>
+              <h3>No ERP or Sexual Content</h3>
+              <p>Explicit sexual roleplay, sexual violence roleplay, and erotic content are not allowed.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.7</span>
+              <h3>No Advertising</h3>
+              <p>No promoting other servers, communities, or outside services in public or private.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.8</span>
+              <h3>No Real-World Trading</h3>
+              <p>Buying, selling, or trading in-game items for real money or outside compensation is forbidden.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">1.9</span>
+              <h3>Staff Authority</h3>
+              <p>Staff decisions are final. Appeals follow the proper process and do not pause enforcement.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="life-death">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 2</div>
+              <h2>New Life & Death Rules</h2>
+              <p class="section-copy">Death resets the immediate situation and prevents revenge-driven re-entry.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">2.1</span>
+              <h3>New Life Rule (NLR)</h3>
+              <p>After death, you forget the immediate events, identities, and location tied to that situation. Do not return for 15 minutes unless staff allow it.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">2.2</span>
+              <h3>Revenge Killing</h3>
+              <p>Returning to attack the people involved in your death is prohibited, no matter how you try to justify it.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">2.3</span>
+              <h3>Vehicle Theft After Death</h3>
+              <p>Property issues tied to your death stay with that scene. You cannot re-enter as if nothing happened.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="gameplay-integrity">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 3</div>
+              <h2>Gameplay Integrity Rules</h2>
+              <p class="section-copy">Fair play matters more than winning by cheese.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">3.1</span>
+              <h3>No Exploits or Cheats</h3>
+              <p>No bugs, glitches, external tools, macros, scripts, or unintended mechanics used for advantage.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">3.2</span>
+              <h3>No Metagaming</h3>
+              <p>Only act on information your character gained in roleplay, not from Discord, streams, or other outside sources.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">3.3</span>
+              <h3>Safe Zones</h3>
+              <p>Safe zones are non-hostile. No violence, intimidation, or cheesy line-crossing bait from their edges.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">3.4</span>
+              <h3>No Gear Abuse</h3>
+              <p>Restricted, faction, or donator gear must stay within its intended role and may not be abused or transferred.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">3.5</span>
+              <h3>No Baiting</h3>
+              <p>Do not intentionally provoke others into rule breaks, combat, or situations created just for your gain.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">3.6</span>
+              <h3>No Powergaming</h3>
+              <p>Do not force impossible outcomes or strip other players of fair responses and agency.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">3.7</span>
+              <h3>Evidence Recording Requirement</h3>
+              <p>Record active gameplay during RP situations. Reports without evidence may be rejected at staff discretion.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="rp-conduct">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 4</div>
+              <h2>Roleplay Conduct Rules</h2>
+              <p class="section-copy">Stay immersed and do not use disconnects or storage to dodge consequences.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">4.1</span>
+              <h3>Stay In Character</h3>
+              <p>Remain in character unless you are in an approved OOC context.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">4.2</span>
+              <h3>Realistic Identity</h3>
+              <p>Character names, behavior, and background should be believable and not trollish or immersion-breaking.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">4.3</span>
+              <h3>No Combat Logging</h3>
+              <p>Do not disconnect or leave to avoid the outcome of an active roleplay situation.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">4.4</span>
+              <h3>No Combat Storing</h3>
+              <p>Do not stash items, cars, or assets to dodge loss during active or unresolved RP.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">4.5</span>
+              <h3>No Rule Referencing in RP</h3>
+              <p>Do not talk about rules, punishments, or staff action during RP. It is immersion-breaking FailRP.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">4.6</span>
+              <h3>No Cop Baiting</h3>
+              <p>Do not intentionally trigger law enforcement responses without real RP reasoning behind it.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="initiation">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 5</div>
+              <h2>Initiation Rules</h2>
+              <p class="section-copy">One of the most important systems on the server. Do it right or do not do it at all.</p>
+            </div>
+          </div>
+
+          <div class="callout warn">
+            <strong>Valid initiation must include three things:</strong> a threat, a demand, and a consequence.
+          </div>
+
+          <div class="triad">
+            <div class="mini-box">
+              <strong>Threat</strong>
+              <p>A visible or clearly implied capability to cause harm.</p>
+            </div>
+            <div class="mini-box">
+              <strong>Demand</strong>
+              <p>A direct instruction or command the target understands.</p>
+            </div>
+            <div class="mini-box">
+              <strong>Consequence</strong>
+              <p>A clear result if the demand is ignored or resisted.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid" style="margin-top:14px;">
+            <article class="rule-card">
+              <span class="rule-number">5.1</span>
+              <h3>Valid Initiation Requirements</h3>
+              <p>All three elements must be present, understandable, and realistic or the initiation is invalid.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">5.2</span>
+              <h3>Compliance Window</h3>
+              <p>Targets must get a reasonable chance to react, with a minimum of 8 seconds unless escalation changes the situation.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">5.3</span>
+              <h3>Direct Initiation Requirement</h3>
+              <p>Initiation must happen in person through clear voice or in-game communication unless staff explicitly allow otherwise.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">5.4</span>
+              <h3>Audible Clarity</h3>
+              <p>The initiator is responsible for making sure the demand is clearly heard and understood.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">5.5</span>
+              <h3>Initiation Exceptions</h3>
+              <p>Immediate defense is allowed when you or an ally are restrained, your vehicle is being taken, you are attacked, or a hostile act is clearly underway.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">5.6</span>
+              <h3>Initiation Duration</h3>
+              <p>Initiation remains active for 15 minutes or until parties fully disengage and separate.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">5.7</span>
+              <h3>Clothing / Identity Changes</h3>
+              <p>Switching disguises or identity mid-situation can break continuity and reset or invalidate initiation.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="combat">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 6</div>
+              <h2>Combat Rules</h2>
+              <p class="section-copy">Violence must have justified, escalated RP behind it.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">6.1</span>
+              <h3>Random Deathmatch (RDM)</h3>
+              <p>Killing or using violence without valid roleplay escalation is prohibited.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">6.2</span>
+              <h3>Vehicle Deathmatch (VDM)</h3>
+              <p>Vehicles are not weapons unless realistically justified in immediate self-defense.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">6.3</span>
+              <h3>Third Party Engagement</h3>
+              <p>Uninvolved players may not jump into ongoing conflicts or exploit them.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">6.4</span>
+              <h3>Kill on Sight (KOS)</h3>
+              <p>KOS is only legal in designated areas or scenarios. Everywhere else, initiation rules apply.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="nvl">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 7</div>
+              <h2>Value of Life (NVL)</h2>
+              <p class="section-copy">Your character should behave like they actually want to keep breathing.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">7.1</span>
+              <h3>Mandatory Life Preservation</h3>
+              <p>Do not act with unrealistic bravery, suicidal behavior, or total disregard for lethal threats.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">7.2</span>
+              <h3>Examples of NVL Failure</h3>
+              <p>Examples include solo pushing multiple armed opponents, ignoring guns at close range, or taking absurd physical risks without justification.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">7.3</span>
+              <h3>Compliance Expectation</h3>
+              <p>When you are outmatched, realistic compliance or believable escape attempts are expected.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="crime">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 8</div>
+              <h2>Crime & Hostage Rules</h2>
+              <p class="section-copy">Criminal RP needs motive, balance, and believable treatment of other players.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">8.1</span>
+              <h3>Valid Robbery Reasoning</h3>
+              <p>Crime must have a clear RP motive unless it is part of a defined illegal system.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">8.2</span>
+              <h3>Hostage Treatment</h3>
+              <p>Hostages are negotiation assets, not disposable props. Treat them realistically.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">8.3</span>
+              <h3>Forced Financial Actions</h3>
+              <p>You may not force players to withdraw money, sell assets, or transfer ownership under coercion.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">8.4</span>
+              <h3>Group Limitations</h3>
+              <p>Large-scale crime is limited to prevent steamrolling and preserve fair engagement.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="medical">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 9</div>
+              <h2>Medical Rules</h2>
+              <p class="section-copy">Medical roleplay stays neutral and follows scene safety.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">9.1</span>
+              <h3>Medic Neutrality</h3>
+              <p>Medical staff must remain neutral and may not become combat participants.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">9.2</span>
+              <h3>Post-Revive RP</h3>
+              <p>Roleplay injuries seriously after revival and follow medical instruction realistically.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">9.3</span>
+              <h3>No Combat Reviving</h3>
+              <p>No revives while combat is active. The scene must be fully safe first.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="law-enforcement">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 10</div>
+              <h2>Law Enforcement Rules</h2>
+              <p class="section-copy">Police RP should protect balance, negotiation, and scene realism.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">10.1</span>
+              <h3>EMS Requirement</h3>
+              <p>Officers should request EMS whenever possible instead of treating revives like a shortcut button.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">10.2</span>
+              <h3>Hostage Protocol</h3>
+              <p>Hostages must be handled as valuable roleplay assets and may not be ignored.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">10.3</span>
+              <h3>Negotiation Cooldown</h3>
+              <p>After negotiations end, allow a minimum 8-second cooldown before lethal action resumes unless a hostage is killed.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">10.4</span>
+              <h3>Abuse Prevention</h3>
+              <p>Police powers may not be abused, misused, or stretched beyond their intended purpose.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="vehicles">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 11</div>
+              <h2>Vehicle Rules</h2>
+              <p class="section-copy">Drive like your character has bones and a survival instinct.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">11.1</span>
+              <h3>Realistic Driving</h3>
+              <p>Vehicle use must reflect believable handling and risk. No impossible stunt nonsense during normal RP.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">11.2</span>
+              <h3>Vehicle Combat Restrictions</h3>
+              <p>Vehicles may only be used offensively in realistic self-defense scenarios.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="major-crime">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 12</div>
+              <h2>Major Crime Rules</h2>
+              <p class="section-copy">Big scenes need structure so they stay fun instead of becoming a clown pileup.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">12.1</span>
+              <h3>Definition</h3>
+              <p>Major crimes include bank robberies, hostage situations, and other organized high-risk operations.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">12.2</span>
+              <h3>Balance Rule</h3>
+              <p>Police and criminal numbers must stay balanced for fair engagement.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">12.3</span>
+              <h3>Participation Restriction</h3>
+              <p>Only directly involved parties may participate in or affect a major crime situation.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">12.4</span>
+              <h3>Restart Protection</h3>
+              <p>Major crimes may not begin within 30 minutes of a server restart.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="enforcement">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Section 13</div>
+              <h2>Final Enforcement Principles</h2>
+              <p class="section-copy">The catch-all section for bad-faith behavior and fake-authority nonsense.</p>
+            </div>
+          </div>
+
+          <div class="rules-grid">
+            <article class="rule-card">
+              <span class="rule-number">13.1</span>
+              <h3>Anti-Trolling Clause</h3>
+              <p>Anything intended to break immersion or provoke non-RP reactions is punishable.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">13.2</span>
+              <h3>Anti-Impersonation</h3>
+              <p>Impersonating staff or abusing the appearance of authority is strictly prohibited.</p>
+            </article>
+
+            <article class="rule-card">
+              <span class="rule-number">13.3</span>
+              <h3>Rule Abuse Clause</h3>
+              <p>Trying to exploit gaps, wording, or technicalities is judged as a violation based on intent.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="final-notice">
+          <div class="section-header">
+            <div>
+              <div class="section-tag">Final Notice</div>
+              <h2>Read This Before You Close the Page</h2>
+              <p class="section-copy">This is the part nobody gets to pretend they missed.</p>
+            </div>
+          </div>
+
+          <div class="callout danger">
+            <strong>These rules are enforced based on staff interpretation of intent, realism, and fairness — not solely their literal wording.</strong>
+          </div>
+
+          <div class="callout" style="margin-top:12px;">
+            Any attempt to loophole, bend, or exploit these rules will be treated as a violation.
+          </div>
+
+          <div class="callout" style="margin-top:12px;">
+            Rules may be updated, added, or removed at any time without notice. By playing on the server, you agree to follow the most current version at all times.
+          </div>
+
+          <p class="footer-note">
+            Last updated: <strong>April 2026</strong> &nbsp;•&nbsp; Official Hallowed Hills rules page
+          </p>
+        </section>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      © Hallowed Hills Wiki • Built for serious roleplay
+    </div>
+  </footer>
 </body>
 </html>
